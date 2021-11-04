@@ -2,10 +2,7 @@ import uuid
 
 import requests
 
-# last count: 182,202
-# last count: 360,094
-
-for i in range(10000):
+for i in range(10):
     assets = []
     for x in range(25):
         assets.append({
