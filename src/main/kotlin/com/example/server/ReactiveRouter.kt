@@ -34,14 +34,13 @@ data class SaveAssetsRequest(
 class ReactiveRouter {
 
     private val log = LoggerFactory.getLogger(ReactiveRouter::class.java)
-
+    
     @Bean
     fun postAccount(
         dynamoDbAsyncClient: DynamoDbAsyncClient,
         dynamoDbClient: DynamoDbClient,
         objectMapper: ObjectMapper,
     ): RouterFunction<ServerResponse> {
-
         log.info("Initiating DynamoDB Async client")
         val client = DynamoDbEnhancedAsyncClient
             .builder()
@@ -54,8 +53,7 @@ class ReactiveRouter {
         log.info("Initiating Elasticsearch client")
         val es = RestHighLevelClient(RestClient.builder(HttpHost("localhost", 9200)))
         log.info("Finished initiating Elasticsearch client")
-
-
+        
         return route(
             POST("/api/assets")
         ) { req ->

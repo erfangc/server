@@ -2,7 +2,7 @@ import uuid
 
 import requests
 
-for i in range(10):
+for i in range(10000):
     assets = []
     for x in range(25):
         assets.append({
@@ -20,4 +20,4 @@ for i in range(10):
             "assets": assets
         }
     )
-    print("time elapsed: " + str(resp.elapsed.total_seconds()))
+    print("batch ", str(i), "time elapsed: ", str(resp.elapsed.total_seconds()))
